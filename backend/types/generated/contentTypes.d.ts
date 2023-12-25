@@ -362,72 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiPhonePhone extends Schema.CollectionType {
-  collectionName: 'phones';
-  info: {
-    singularName: 'phone';
-    pluralName: 'phones';
-    displayName: 'iPhone';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Model: Attribute.String;
-    Price: Attribute.Integer;
-    Img: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::phone.phone',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::phone.phone',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSamsungSamsung extends Schema.CollectionType {
-  collectionName: 'samsungs';
-  info: {
-    singularName: 'samsung';
-    pluralName: 'samsungs';
-    displayName: 'Samsung';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Model: Attribute.String;
-    Price: Attribute.Integer;
-    Img: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::samsung.samsung',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::samsung.samsung',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -834,6 +768,105 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiPhonePhone extends Schema.CollectionType {
+  collectionName: 'phones';
+  info: {
+    singularName: 'phone';
+    pluralName: 'phones';
+    displayName: 'iPhone';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    model: Attribute.String;
+    price: Attribute.Integer;
+    img: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::phone.phone',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::phone.phone',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSamsungSamsung extends Schema.CollectionType {
+  collectionName: 'samsungs';
+  info: {
+    singularName: 'samsung';
+    pluralName: 'samsungs';
+    displayName: 'Samsung';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    model: Attribute.String;
+    price: Attribute.Integer;
+    img: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::samsung.samsung',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::samsung.samsung',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSamsungSmartWatchSamsungSmartWatch
+  extends Schema.CollectionType {
+  collectionName: 'samsung_smart_watches';
+  info: {
+    singularName: 'samsung-smart-watch';
+    pluralName: 'samsung-smart-watches';
+    displayName: 'Samsung Smart Watch';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    model: Attribute.String;
+    price: Attribute.Integer;
+    img: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::samsung-smart-watch.samsung-smart-watch',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::samsung-smart-watch.samsung-smart-watch',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -844,8 +877,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::phone.phone': ApiPhonePhone;
-      'api::samsung.samsung': ApiSamsungSamsung;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -854,6 +885,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::phone.phone': ApiPhonePhone;
+      'api::samsung.samsung': ApiSamsungSamsung;
+      'api::samsung-smart-watch.samsung-smart-watch': ApiSamsungSmartWatchSamsungSmartWatch;
     }
   }
 }

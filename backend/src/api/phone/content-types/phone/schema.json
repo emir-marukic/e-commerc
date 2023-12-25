@@ -12,13 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Model": {
+    "model": {
       "type": "string"
     },
-    "Price": {
+    "price": {
       "type": "integer"
     },
-    "Img": {
+    "img": {
       "type": "string"
     }
   }

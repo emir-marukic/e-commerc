@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "samsungs",
+  "collectionName": "samsung_smart_watches",
   "info": {
-    "singularName": "samsung",
-    "pluralName": "samsungs",
-    "displayName": "Samsung",
-    "description": ""
+    "singularName": "samsung-smart-watch",
+    "pluralName": "samsung-smart-watches",
+    "displayName": "Samsung Smart Watch"
   },
   "options": {
     "draftAndPublish": true
