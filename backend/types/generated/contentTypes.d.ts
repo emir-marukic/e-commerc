@@ -362,30 +362,65 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiProductProduct extends Schema.CollectionType {
-  collectionName: 'products';
+export interface ApiPhonePhone extends Schema.CollectionType {
+  collectionName: 'phones';
   info: {
-    singularName: 'product';
-    pluralName: 'products';
-    displayName: 'product';
+    singularName: 'phone';
+    pluralName: 'phones';
+    displayName: 'iPhone';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String;
-    Number: Attribute.Integer;
+    Model: Attribute.String;
+    Price: Attribute.Integer;
+    Img: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::product.product',
+      'api::phone.phone',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::product.product',
+      'api::phone.phone',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSamsungSamsung extends Schema.CollectionType {
+  collectionName: 'samsungs';
+  info: {
+    singularName: 'samsung';
+    pluralName: 'samsungs';
+    displayName: 'Samsung';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Model: Attribute.String;
+    Price: Attribute.Integer;
+    Img: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::samsung.samsung',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::samsung.samsung',
       'oneToOne',
       'admin::user'
     > &
@@ -809,7 +844,8 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::product.product': ApiProductProduct;
+      'api::phone.phone': ApiPhonePhone;
+      'api::samsung.samsung': ApiSamsungSamsung;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

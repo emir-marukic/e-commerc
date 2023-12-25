@@ -29,6 +29,10 @@ function Navbar() {
           <p>/</p>
         </div>
       </div>
+      <div className="navText">
+        <p>Dive into Tech World</p>
+        <p>with SyncSphere</p>
+      </div>
     </div>
   );
 }

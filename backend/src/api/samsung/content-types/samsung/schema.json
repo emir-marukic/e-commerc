@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "samsungs",
+  "info": {
+    "singularName": "samsung",
+    "pluralName": "samsungs",
+    "displayName": "Samsung",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Model": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "Img": {
+      "type": "string"
+    }
+  }
+}

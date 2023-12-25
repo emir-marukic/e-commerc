@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "phones",
+  "info": {
+    "singularName": "phone",
+    "pluralName": "phones",
+    "displayName": "iPhone",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Model": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "Img": {
+      "type": "string"
+    }
+  }
+}
