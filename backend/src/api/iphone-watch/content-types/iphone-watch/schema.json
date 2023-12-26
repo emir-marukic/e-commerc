@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "samsung_smart_watches",
+  "collectionName": "iphone_watches",
   "info": {
-    "singularName": "samsung-smart-watch",
-    "pluralName": "samsung-smart-watches",
-    "displayName": "samsung watch",
-    "description": ""
+    "singularName": "iphone-watch",
+    "pluralName": "iphone-watches",
+    "displayName": "iphone watch"
   },
   "options": {
     "draftAndPublish": true

@@ -768,6 +768,38 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiIphoneWatchIphoneWatch extends Schema.CollectionType {
+  collectionName: 'iphone_watches';
+  info: {
+    singularName: 'iphone-watch';
+    pluralName: 'iphone-watches';
+    displayName: 'iphone watch';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    model: Attribute.String;
+    price: Attribute.Integer;
+    img: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::iphone-watch.iphone-watch',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::iphone-watch.iphone-watch',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPhonePhone extends Schema.CollectionType {
   collectionName: 'phones';
   info: {
@@ -840,7 +872,8 @@ export interface ApiSamsungSmartWatchSamsungSmartWatch
   info: {
     singularName: 'samsung-smart-watch';
     pluralName: 'samsung-smart-watches';
-    displayName: 'Samsung Smart Watch';
+    displayName: 'samsung watch';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -885,6 +918,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::iphone-watch.iphone-watch': ApiIphoneWatchIphoneWatch;
       'api::phone.phone': ApiPhonePhone;
       'api::samsung.samsung': ApiSamsungSamsung;
       'api::samsung-smart-watch.samsung-smart-watch': ApiSamsungSmartWatchSamsungSmartWatch;
