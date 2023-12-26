@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import { useState } from "react";
 import MediaCard from "./Card";
 import { useEffect } from "react";
-import { fetchSamsungData } from "../../api/App";
+import { getSamsungData } from "../../api/App";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -47,15 +47,12 @@ export default function BasicTabs() {
   const [samsung, setSamsung] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchSamsungData();
-        setSamsung(data);
-      } catch (error) {
-        error;
-      }
+    const fetchSamsungData = async () => {
+      const response = await axios.get(getSamsungData);
+      setSamsung(response.data.data);
     };
-    fetchData();
+
+    fetchSamsungData();
   }, []);
 
   const handleChange = (event, newValue) => {

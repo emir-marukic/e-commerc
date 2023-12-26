@@ -1,33 +1,15 @@
-const express = require("express");
-const router = express.Router();
-const axios = require("axios");
+import axios from "axios";
 
-router.get("/api/all-data", async (req, res) => {
-  try {
-    // Fetch data from the existing endpoints
-    const iphoneData = await axios.get("http://localhost:1337/api/phones");
-    const samsungData = await axios.get("http://localhost:1337/api/samsungs");
-    const iphoneWatchData = await axios.get(
-      "http://localhost:1337/api/iphone-watches"
-    );
-    const samsungWatchData = await axios.get(
-      "http://localhost:1337/api/samsung-smart-watches"
-    );
-
-    // Combine the data
-    const combinedData = {
-      iphoneData: iphoneData.data,
-      samsungData: samsungData.data.data,
-      iphoneWatchData: iphoneWatchData.data,
-      samsungWatchData: samsungWatchData.data,
-    };
-
-    // Send the combined data as the response
-    res.json(combinedData);
-  } catch (error) {
-    console.error("Error fetching data: ", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
+export const getSamsungData = axios.create({
+  baseURL: "http://localhost:1337/api/samsungs",
 });
 
-module.exports = router;
+export const getSamsungWatchData = axios.create({
+  baseURL: "http://localhost:1337/api/samsung-smart-watches",
+});
+export const getIphoneData = axios.create({
+  baseURL: "http://localhost:1337/api/phones",
+});
+export const getIphoneWatchData = axios.create({
+  baseURL: "http://localhost:1337/api/iphone-watches",
+});
