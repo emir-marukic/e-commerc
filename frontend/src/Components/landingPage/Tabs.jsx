@@ -8,6 +8,7 @@ import { useState } from "react";
 import MediaCard from "./Card";
 import { useEffect } from "react";
 import { getSamsungData } from "../../api/App";
+import axios from "axios";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;

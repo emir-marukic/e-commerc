@@ -19,6 +19,12 @@
     },
     "img": {
       "type": "string"
+    },
+    "device": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::device.device",
+      "inversedBy": "iphone_watches"
     }
   }
 }
