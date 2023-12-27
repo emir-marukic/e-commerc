@@ -50,9 +50,7 @@ export default function BasicTabs() {
   useEffect(() => {
     const fetchingData = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:1337/api/devices?populate=*"
-        );
+        const response = await axios.get(devices);
         setDevice(response.data);
         console.log(response.data?.data?.attributes);
       } catch (error) {
