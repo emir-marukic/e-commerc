@@ -1,3 +1,5 @@
 import axios from "axios";
 
-export default devices = 
+export const devices = axios.create({
+  baseURL: "http://localhost:1337/api/devices?populate=*",
+});

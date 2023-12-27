@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import { useState } from "react";
 import MediaCard from "./Card";
 import { useEffect } from "react";
-import { getSamsungData } from "../../api/App";
+import { devices } from "../../api/App";
 import axios from "axios";
 
 function CustomTabPanel(props) {
@@ -45,15 +45,21 @@ function a11yProps(index) {
 
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
-  const [samsung, setSamsung] = useState(null);
+  const [device, setDevice] = useState(null);
 
   useEffect(() => {
-    const fetchSamsungData = async () => {
-      const response = await axios.get(getSamsungData);
-      setSamsung(response.data.data);
+    const fetchingData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:1337/api/devices?populate=*"
+        );
+        setDevice(response.data);
+        console.log(response.data?.data?.attributes);
+      } catch (error) {
+        throw error("Error fetching data: ", error);
+      }
     };
-
-    fetchSamsungData();
+    fetchingData();
   }, []);
 
   const handleChange = (event, newValue) => {
@@ -75,7 +81,7 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        {samsung &&
+        {/* {samsung &&
           samsung.map((item) => (
             <MediaCard
               key={item.id}
@@ -83,7 +89,7 @@ export default function BasicTabs() {
               img={item.attributes.img}
               price={item.attributes.price}
             />
-          ))}
+          ))} */}
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         Item Two
