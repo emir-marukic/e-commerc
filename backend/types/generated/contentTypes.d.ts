@@ -768,55 +768,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiDeviceDevice extends Schema.CollectionType {
-  collectionName: 'devices';
-  info: {
-    singularName: 'device';
-    pluralName: 'devices';
-    displayName: 'device';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    i_phones: Attribute.Relation<
-      'api::device.device',
-      'oneToMany',
-      'api::phone.phone'
-    >;
-    iphone_watches: Attribute.Relation<
-      'api::device.device',
-      'oneToMany',
-      'api::iphone-watch.iphone-watch'
-    >;
-    samsungs: Attribute.Relation<
-      'api::device.device',
-      'oneToMany',
-      'api::samsung.samsung'
-    >;
-    samsung_watches: Attribute.Relation<
-      'api::device.device',
-      'oneToMany',
-      'api::samsung-smart-watch.samsung-smart-watch'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::device.device',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::device.device',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiIphoneWatchIphoneWatch extends Schema.CollectionType {
   collectionName: 'iphone_watches';
   info: {
@@ -831,11 +782,6 @@ export interface ApiIphoneWatchIphoneWatch extends Schema.CollectionType {
     model: Attribute.String;
     price: Attribute.Integer;
     img: Attribute.String;
-    device: Attribute.Relation<
-      'api::iphone-watch.iphone-watch',
-      'manyToOne',
-      'api::device.device'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -869,11 +815,6 @@ export interface ApiPhonePhone extends Schema.CollectionType {
     model: Attribute.String;
     price: Attribute.Integer;
     img: Attribute.String;
-    device: Attribute.Relation<
-      'api::phone.phone',
-      'manyToOne',
-      'api::device.device'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -907,11 +848,6 @@ export interface ApiSamsungSamsung extends Schema.CollectionType {
     model: Attribute.String;
     price: Attribute.Integer;
     img: Attribute.String;
-    device: Attribute.Relation<
-      'api::samsung.samsung',
-      'manyToOne',
-      'api::device.device'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -946,11 +882,6 @@ export interface ApiSamsungSmartWatchSamsungSmartWatch
     model: Attribute.String;
     price: Attribute.Integer;
     img: Attribute.String;
-    device: Attribute.Relation<
-      'api::samsung-smart-watch.samsung-smart-watch',
-      'manyToOne',
-      'api::device.device'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -987,7 +918,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::device.device': ApiDeviceDevice;
       'api::iphone-watch.iphone-watch': ApiIphoneWatchIphoneWatch;
       'api::phone.phone': ApiPhonePhone;
       'api::samsung.samsung': ApiSamsungSamsung;
