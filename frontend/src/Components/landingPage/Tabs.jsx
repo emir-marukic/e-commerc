@@ -8,9 +8,7 @@ import { useState } from "react";
 import MediaCard from "./Card";
 import { useEffect } from "react";
 import { devicesApi } from "../../api/App";
-
 // import { devicesApi } from "../../api/App";
-import axios from "axios";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -48,27 +46,55 @@ function a11yProps(index) {
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
   const [samsung, setSamsung] = useState(null);
-  // const [iphone, setIphone] = useState(null);
-  // const [samsungWatch, setSamsungWatch] = useState(null);
-  // const [iphoneWatch, setIphoneWatch] = useState(null);
+  const [iphone, setIphone] = useState(null);
 
   useEffect(() => {
-    const fetchingData = async (str) => {
+    const fetchData = async (str) => {
       try {
         const response = await devicesApi.get(`api/${str}`);
-
-        console.log(response.data.data.attributes);
-
-        setSamsung(response.data);
+        if (str === "samsung") {
+          setSamsung(response.data.data);
+        } else if (str === "phones") {
+          setIphone(response.data.data);
+        }
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     };
-    fetchingData("samsungs");
-  }, []);
+
+    // Fetch data for the initially selected tab
+    fetchData(getTabDataName(value));
+  }, [value]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const getTabDataName = (tabIndex) => {
+    // Define a mapping between tab index and data names
+    const tabDataNames = [
+      "samsungs",
+      "iphones",
+      "samsungWatches",
+      "iphoneWatches",
+    ];
+    return tabDataNames[tabIndex];
+  };
+
+  const handleTabChange = (event, newValue) => {
+    // Fetch data when a tab is changed
+    const dataName = getTabDataName(newValue);
+    fetchData(dataName);
+    handleChange(event, newValue);
+  };
+
+  const fetchData = async (str) => {
+    try {
+      const response = await devicesApi.get(`api/${str}`);
+      setSamsung(response.data.data);
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    }
   };
 
   return (
@@ -76,28 +102,36 @@ export default function BasicTabs() {
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
-          onChange={handleChange}
+          onChange={handleTabChange} // Use handleTabChange for tab changes
           aria-label="basic tabs example"
         >
           <Tab label="Samsung" {...a11yProps(0)} />
           <Tab label="iPhone" {...a11yProps(1)} />
-          <Tab label="Samsuns Smart Watches" {...a11yProps(2)} />
+          <Tab label="Samsung Smart Watches" {...a11yProps(2)} />
           <Tab label="iPhone Smart Watches" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        {/* {samsung.map((item) => (
-          <MediaCard
-            key={item.id}
-            name={item.model}
-            img={item.img}
-            price={item.price}
-          />
-        ))} */}
+        {samsung &&
+          samsung.map((item) => (
+            <MediaCard
+              key={item.id}
+              name={item.attributes.model}
+              img={item.attributes.img}
+              price={item.attributes.price}
+            />
+          ))}
       </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}></CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        Item Three
+      <CustomTabPanel value={value} index={0}>
+        {iphone &&
+          iphone.map((item) => (
+            <MediaCard
+              key={item.id}
+              name={item.attributes.model}
+              img={item.attributes.img}
+              price={item.attributes.price}
+            />
+          ))}
       </CustomTabPanel>
     </Box>
   );
