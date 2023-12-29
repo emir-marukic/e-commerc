@@ -7,7 +7,9 @@ import Box from "@mui/material/Box";
 import { useState } from "react";
 import MediaCard from "./Card";
 import { useEffect } from "react";
-import { devices } from "../../api/App";
+import { devicesApi } from "../../api/App";
+
+// import { devicesApi } from "../../api/App";
 import axios from "axios";
 
 function CustomTabPanel(props) {
@@ -45,19 +47,24 @@ function a11yProps(index) {
 
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
-  const [device, setDevice] = useState(null);
+  const [samsung, setSamsung] = useState(null);
+  // const [iphone, setIphone] = useState(null);
+  // const [samsungWatch, setSamsungWatch] = useState(null);
+  // const [iphoneWatch, setIphoneWatch] = useState(null);
 
   useEffect(() => {
-    const fetchingData = async () => {
+    const fetchingData = async (str) => {
       try {
-        const response = await axios.get(devices);
-        setDevice(response.data);
-        console.log(response.data?.data?.attributes);
+        const response = await devicesApi.get(`api/${str}`);
+
+        console.log(response.data.data.attributes);
+
+        setSamsung(response.data);
       } catch (error) {
-        throw error("Error fetching data: ", error);
+        console.error("Error fetching data: ", error);
       }
     };
-    fetchingData();
+    fetchingData("samsungs");
   }, []);
 
   const handleChange = (event, newValue) => {
@@ -79,19 +86,16 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        {/* {samsung &&
-          samsung.map((item) => (
-            <MediaCard
-              key={item.id}
-              name={item.attributes.model}
-              img={item.attributes.img}
-              price={item.attributes.price}
-            />
-          ))} */}
+        {/* {samsung.map((item) => (
+          <MediaCard
+            key={item.id}
+            name={item.model}
+            img={item.img}
+            price={item.price}
+          />
+        ))} */}
       </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        Item Two
-      </CustomTabPanel>
+      <CustomTabPanel value={value} index={1}></CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         Item Three
       </CustomTabPanel>
