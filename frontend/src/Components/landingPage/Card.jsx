@@ -14,17 +14,19 @@ export default function MediaCard({ name, img, price }) {
           sx={{
             height: 240,
             width: 240,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            overflow: "hidden",
           }}
           component="img"
           image={img}
           title={name}
           alt={name}
-          style={{ objectFit: "cover", width: "300px", height: "300px" }}
+          style={{
+            maxWidth: "300px",
+            maxHeight: "300px",
+            padding: "20px",
+            objectFit: "inherit",
+          }}
         />
+
         <CardContent style={{ height: "150px" }}>
           <Typography variant="h5" component="div">
             {name}

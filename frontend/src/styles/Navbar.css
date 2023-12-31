@@ -46,20 +46,7 @@
   flex-direction: column;
   gap: 20px;
 }
-
-/* .tabs {
+.tab {
   width: 50%;
   margin: auto;
 }
-
-.card img {
-  width: 250px;
-  height: 250px;
-}
-
-.card {
-  background-color: blueviolet;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-} */

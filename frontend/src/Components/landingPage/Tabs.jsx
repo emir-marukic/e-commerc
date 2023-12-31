@@ -8,9 +8,8 @@ import { useState } from "react";
 import MediaCard from "./Card";
 import { useEffect } from "react";
 import { devicesApi } from "../../api/App";
+import { Container, CssBaseline, Grid } from "@mui/material";
 import "../../styles/Navbar.css";
-import { Grid } from "@mui/material";
-// import { devicesApi } from "../../api/App";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -24,8 +23,12 @@ function CustomTabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }} className="card">
-          <Typography>{children}</Typography>
+        <Box sx={{ marginTop: 10 }}>
+          {children === null || children.length === 0 ? (
+            <Typography>Loading...</Typography>
+          ) : (
+            <Typography>{children}</Typography>
+          )}
         </Box>
       )}
     </div>
@@ -73,7 +76,12 @@ export default function BasicTabs() {
     fetchData(getTabDataName(value));
   }, [value]);
 
+  useEffect(() => {
+    fetchData(getTabDataName(value));
+  }, [value]);
+
   const handleChange = (event, newValue) => {
+    event.preventDefault();
     setValue(newValue);
   };
 
@@ -109,6 +117,7 @@ export default function BasicTabs() {
           value={value}
           onChange={handleTabChange}
           aria-label="basic tabs example"
+          className="tab"
         >
           <Tab label="Samsung" {...a11yProps(0)} />
           <Tab label="iPhone" {...a11yProps(1)} />
@@ -117,56 +126,68 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Grid container spacing={10}>
-          {samsung &&
-            samsung.map((item) => (
-              <MediaCard
-                key={item.id}
-                name={item.attributes.model}
-                img={item.attributes.img}
-                price={"$" + item.attributes.price}
-              />
-            ))}
-        </Grid>
+        <CssBaseline />
+        <Container maxWidth="lg">
+          <Grid container spacing={10}>
+            {samsung &&
+              samsung.map((item) => (
+                <MediaCard
+                  key={item.id}
+                  name={item.attributes.model}
+                  img={item.attributes.img}
+                  price={"$" + item.attributes.price}
+                />
+              ))}
+          </Grid>
+        </Container>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <Grid container spacing={10}>
-          {iphone &&
-            iphone.map((item) => (
-              <MediaCard
-                key={item.id}
-                name={item.attributes.model}
-                img={item.attributes.img}
-                price={"$" + item.attributes.price}
-              />
-            ))}
-        </Grid>
+        <CssBaseline />
+        <Container maxWidth="lg">
+          <Grid container spacing={10}>
+            {iphone &&
+              iphone.map((item) => (
+                <MediaCard
+                  key={item.id}
+                  name={item.attributes.model}
+                  img={item.attributes.img}
+                  price={"$" + item.attributes.price}
+                />
+              ))}
+          </Grid>
+        </Container>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <Grid container spacing={10}>
-          {samsungWatch &&
-            samsungWatch.map((item) => (
-              <MediaCard
-                key={item.id}
-                name={item.attributes.model}
-                img={item.attributes.img}
-                price={"$" + item.attributes.price}
-              />
-            ))}
-        </Grid>
+        <CssBaseline />
+        <Container maxWidth="lg">
+          <Grid container spacing={10}>
+            {samsungWatch &&
+              samsungWatch.map((item) => (
+                <MediaCard
+                  key={item.id}
+                  name={item.attributes.model}
+                  img={item.attributes.img}
+                  price={"$" + item.attributes.price}
+                />
+              ))}
+          </Grid>
+        </Container>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3}>
-        <Grid container spacing={10}>
-          {iphoneWatch &&
-            iphoneWatch.map((item) => (
-              <MediaCard
-                key={item.id}
-                name={item.attributes.model}
-                img={item.attributes.img}
-                price={"$" + item.attributes.price}
-              />
-            ))}
-        </Grid>
+        <CssBaseline />
+        <Container maxWidth="lg">
+          <Grid container spacing={10}>
+            {iphoneWatch &&
+              iphoneWatch.map((item) => (
+                <MediaCard
+                  key={item.id}
+                  name={item.attributes.model}
+                  img={item.attributes.img}
+                  price={"$" + item.attributes.price}
+                />
+              ))}
+          </Grid>
+        </Container>
       </CustomTabPanel>
     </Box>
   );
