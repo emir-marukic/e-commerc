@@ -1,6 +1,11 @@
 * {
   margin: 0px;
   box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0px;
 }
 
 .backgroundContainer {
@@ -47,6 +52,6 @@
   gap: 20px;
 }
 .tab {
-  width: 50%;
+  width: 34%;
   margin: auto;
 }

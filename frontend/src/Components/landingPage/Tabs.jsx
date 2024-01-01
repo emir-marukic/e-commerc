@@ -25,9 +25,9 @@ function CustomTabPanel(props) {
       {value === index && (
         <Box sx={{ marginTop: 10 }}>
           {children === null || children.length === 0 ? (
-            <Typography>Loading...</Typography>
+            <Typography component="div">Loading...</Typography>
           ) : (
-            <Typography>{children}</Typography>
+            <Typography component="div">{children}</Typography>
           )}
         </Box>
       )}
@@ -127,7 +127,7 @@ export default function BasicTabs() {
       </Box>
       <CustomTabPanel value={value} index={0}>
         <CssBaseline />
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Grid container spacing={10}>
             {samsung &&
               samsung.map((item) => (
