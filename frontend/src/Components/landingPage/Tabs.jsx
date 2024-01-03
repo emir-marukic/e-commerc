@@ -59,14 +59,19 @@ export default function BasicTabs() {
     const fetchData = async (str) => {
       try {
         const response = await devicesApi.get(`api/${str}`);
-        if (str === "samsung") {
-          setSamsung(response.data.data);
-        } else if (str === "phones") {
-          setIphone(response.data.data);
-        } else if (str === "samsung-smart-watches") {
-          setSamsungWatch(response.data.data);
-        } else if (str === "iphone-watches") {
-          setIphoneWatch(response.data.data);
+        switch (str) {
+          case "samsung":
+            setSamsung(response.data.data);
+            break;
+          case "phones":
+            setIphone(response.data.data);
+            break;
+          case "samsung-smart-watches":
+            setSamsungWatch(response.data.data);
+            break;
+          case "iphone-watches":
+            setIphoneWatch(response.data.data);
+            break;
         }
       } catch (error) {
         console.error("Error fetching data: ", error);
