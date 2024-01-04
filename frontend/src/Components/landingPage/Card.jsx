@@ -9,34 +9,33 @@ import { Grid } from "@mui/material";
 export default function MediaCard({ name, img, price }) {
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card>
         <CardMedia
           sx={{
             height: 240,
-            width: 240,
+            width: "100%",
+            padding: "20px",
+            objectFit: "inherit",
           }}
           component="img"
           image={img}
           title={name}
           alt={name}
-          style={{
-            maxWidth: "300px",
-            maxHeight: "300px",
-            padding: "20px",
-            objectFit: "inherit",
-          }}
+          style={{}}
         />
 
         <CardContent style={{ height: "150px" }}>
           <Typography variant="h5" component="div">
             {name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.primary" fontSize={25}>
             {price}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Shop now</Button>
+          <Button variant="contained" size="medium">
+            Shop now
+          </Button>
         </CardActions>
       </Card>
     </Grid>

@@ -143,7 +143,7 @@ export default function BasicTabs() {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <CssBaseline />
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Grid container spacing={10}>
             {iphone &&
               iphone.map((item) => (
@@ -159,7 +159,7 @@ export default function BasicTabs() {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <CssBaseline />
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Grid container spacing={10}>
             {samsungWatch &&
               samsungWatch.map((item) => (
@@ -175,7 +175,7 @@ export default function BasicTabs() {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3}>
         <CssBaseline />
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Grid container spacing={10}>
             {iphoneWatch &&
               iphoneWatch.map((item) => (
