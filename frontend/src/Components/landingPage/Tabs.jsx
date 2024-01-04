@@ -59,14 +59,19 @@ export default function BasicTabs() {
     const fetchData = async (str) => {
       try {
         const response = await devicesApi.get(`api/${str}`);
-        if (str === "samsung") {
-          setSamsung(response.data.data);
-        } else if (str === "phones") {
-          setIphone(response.data.data);
-        } else if (str === "samsung-smart-watches") {
-          setSamsungWatch(response.data.data);
-        } else if (str === "iphone-watches") {
-          setIphoneWatch(response.data.data);
+        switch (str) {
+          case "samsung":
+            setSamsung(response.data.data);
+            break;
+          case "phones":
+            setIphone(response.data.data);
+            break;
+          case "samsung-smart-watches":
+            setSamsungWatch(response.data.data);
+            break;
+          case "iphone-watches":
+            setIphoneWatch(response.data.data);
+            break;
         }
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -81,7 +86,6 @@ export default function BasicTabs() {
   }, [value]);
 
   const handleChange = (event, newValue) => {
-    event.preventDefault();
     setValue(newValue);
   };
 
@@ -115,7 +119,10 @@ export default function BasicTabs() {
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
-          onChange={handleTabChange}
+          onChange={(event, newValue) => {
+            handleTabChange(event, newValue);
+            event.preventDefault();
+          }}
           aria-label="basic tabs example"
           className="tab"
         >
@@ -127,7 +134,7 @@ export default function BasicTabs() {
       </Box>
       <CustomTabPanel value={value} index={0}>
         <CssBaseline />
-        <Container maxWidth="xl">
+        <Container maxWidth="lg">
           <Grid container spacing={10}>
             {samsung &&
               samsung.map((item) => (
