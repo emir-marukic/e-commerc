@@ -115,8 +115,14 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box sx={{ width: "100%", textAlign: "center" }}>
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          display: "inline-block",
+        }}
+      >
         <Tabs
           value={value}
           onChange={(event, newValue) => {
@@ -125,6 +131,7 @@ export default function BasicTabs() {
           }}
           aria-label="basic tabs example"
           className="tab"
+          sx={{ textTransform: "normal" }}
         >
           <Tab label="Samsung" {...a11yProps(0)} />
           <Tab label="iPhone" {...a11yProps(1)} />
@@ -132,9 +139,10 @@ export default function BasicTabs() {
           <Tab label="iPhone Smart Watches" {...a11yProps(3)} />
         </Tabs>
       </Box>
+
       <CustomTabPanel value={value} index={0}>
         <CssBaseline />
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Grid container spacing={10}>
             {samsung &&
               samsung.map((item) => (
