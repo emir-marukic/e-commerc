@@ -24,8 +24,8 @@ export default function MediaCard({ name, img, price }) {
           style={{}}
         />
 
-        <CardContent style={{ height: "150px" }}>
-          <Typography variant="h5" component="div">
+        <CardContent style={{ height: "150px", color: "black" }}>
+          <Typography variant="h5" component="div" style={{ color: "black" }}>
             {name}
           </Typography>
           <Typography variant="body2" color="text.primary" fontSize={25}>

@@ -1,9 +1,8 @@
 import { Container, Grid, Typography } from "@mui/material";
-import React from "react";
 
 function Content(props) {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="lg">
       <Typography textAlign="center" variant="h2" fontSize={40} mt={20}>
         {props.header}
       </Typography>
