@@ -1,8 +1,6 @@
 import Navbar from "./Components/landingPage/Navbar";
-import BasicTabs from "./Components/landingPage/Tabs";
 import Content from "./Components/landingPage/Content";
 import Footer from "./Components/landingPage/Footer";
-import { Tab } from "@mui/material";
 import TabsSegmentedControls from "./Components/landingPage/Tab";
 
 function App() {
