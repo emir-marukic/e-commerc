@@ -12,7 +12,7 @@ function App() {
           "Discover a curated collection of the most advanced smartphones, designed to keep you connected in style. From flagship models to budget-friendly options, SyncSphere brings you the best in performance, design, and functionality."
         }
         img={
-          "https://images.pexels.com/photos/5048613/pexels-photo-5048613.jpeg?auto=compress&cs=tinysrgb&w=600"
+          "https://images.pexels.com/photos/4195325/pexels-photo-4195325.jpeg?auto=compress&cs=tinysrgb&w=800"
         }
       />
       <BasicTabs />

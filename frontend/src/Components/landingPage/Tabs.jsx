@@ -9,6 +9,7 @@ import MediaCard from "./Card";
 import { useEffect } from "react";
 import { devicesApi } from "../../api/App";
 import { Container, CssBaseline, Grid } from "@mui/material";
+
 import "../../styles/Navbar.css";
 
 function CustomTabPanel(props) {
@@ -131,7 +132,6 @@ export default function BasicTabs() {
           }}
           aria-label="basic tabs example"
           className="tab"
-          sx={{ textTransform: "normal" }}
         >
           <Tab label="Samsung" {...a11yProps(0)} />
           <Tab label="iPhone" {...a11yProps(1)} />

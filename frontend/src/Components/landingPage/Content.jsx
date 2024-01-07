@@ -13,7 +13,7 @@ function Content(props) {
             {props.text}
           </Typography>
         </Grid>
-        <Grid item xl={2}></Grid>
+        <Grid item xl={1}></Grid>
         <Grid item xs={12} md={6} xl={4}>
           <img src={props.img} style={{ maxWidth: "100%", height: "500px" }} />
         </Grid>
