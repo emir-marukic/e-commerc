@@ -1,16 +1,21 @@
 import * as React from "react";
+import Tabs from "@mui/joy/Tabs";
+import TabList from "@mui/joy/TabList";
+import Tab, { tabClasses } from "@mui/joy/Tab";
 import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { useState } from "react";
-import MediaCard from "./Card";
-import { useEffect } from "react";
-import { devicesApi } from "../../api/App";
+import Typography from "@mui/material/Typography";
 import { Container, CssBaseline, Grid } from "@mui/material";
+<<<<<<< HEAD:frontend/src/Components/landingPage/Tabs.jsx
 
 import "../../styles/Navbar.css";
+=======
+import MediaCard from "./Card";
+import { devicesApi } from "../../api/App";
+import "../../styles/styles.css";
+import { useState } from "react";
+import { useEffect } from "react";
+>>>>>>> 0b7b06096f747e3d507b8dd40cb20fff9e4a77e7:frontend/src/Components/landingPage/Tab.jsx
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -42,14 +47,7 @@ CustomTabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
-
-export default function BasicTabs() {
+export default function TabsSegmentedControls() {
   const [value, setValue] = React.useState(0);
   const [samsung, setSamsung] = useState(null);
   const [iphone, setIphone] = useState(null);
@@ -61,7 +59,7 @@ export default function BasicTabs() {
       try {
         const response = await devicesApi.get(`api/${str}`);
         switch (str) {
-          case "samsung":
+          case "samsungs":
             setSamsung(response.data.data);
             break;
           case "phones":
@@ -82,10 +80,6 @@ export default function BasicTabs() {
     fetchData(getTabDataName(value));
   }, [value]);
 
-  useEffect(() => {
-    fetchData(getTabDataName(value));
-  }, [value]);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -100,43 +94,42 @@ export default function BasicTabs() {
     return tabDataNames[tabIndex];
   };
 
-  const handleTabChange = (event, newValue) => {
-    const dataName = getTabDataName(newValue);
-    fetchData(dataName);
-    handleChange(event, newValue);
-  };
-
-  const fetchData = async (str) => {
-    try {
-      const response = await devicesApi.get(`api/${str}`);
-      setSamsung(response.data.data);
-    } catch (error) {
-      console.error("Error fetching data: ", error);
-    }
-  };
-
   return (
     <Box sx={{ width: "100%", textAlign: "center" }}>
-      <Box
-        sx={{
-          borderBottom: 1,
-          borderColor: "divider",
-          display: "inline-block",
-        }}
-      >
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Tabs
           value={value}
           onChange={(event, newValue) => {
-            handleTabChange(event, newValue);
+            handleChange(event, newValue);
             event.preventDefault();
           }}
+<<<<<<< HEAD:frontend/src/Components/landingPage/Tabs.jsx
           aria-label="basic tabs example"
           className="tab"
+=======
+          aria-label="tabs"
+          defaultValue={0}
+          sx={{ bgcolor: "transparent" }}
+>>>>>>> 0b7b06096f747e3d507b8dd40cb20fff9e4a77e7:frontend/src/Components/landingPage/Tab.jsx
         >
-          <Tab label="Samsung" {...a11yProps(0)} />
-          <Tab label="iPhone" {...a11yProps(1)} />
-          <Tab label="Samsung Smart Watches" {...a11yProps(2)} />
-          <Tab label="iPhone Smart Watches" {...a11yProps(3)} />
+          <TabList
+            disableUnderline
+            sx={{
+              p: 0.5,
+              gap: 0.5,
+              borderRadius: "xl",
+              bgcolor: "background.level1",
+              [`& .${tabClasses.root}[aria-selected="true"]`]: {
+                boxShadow: "sm",
+                bgcolor: "background.surface",
+              },
+            }}
+          >
+            <Tab disableIndicator>Samsung</Tab>
+            <Tab disableIndicator>iPhone</Tab>
+            <Tab disableIndicator>Samsung Smart Watch</Tab>
+            <Tab disableIndicator>iPhone Smart Watch</Tab>
+          </TabList>
         </Tabs>
       </Box>
 
