@@ -6,16 +6,11 @@ import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Container, CssBaseline, Grid } from "@mui/material";
-<<<<<<< HEAD:frontend/src/Components/landingPage/Tabs.jsx
-
-import "../../styles/Navbar.css";
-=======
 import MediaCard from "./Card";
 import { devicesApi } from "../../api/App";
 import "../../styles/styles.css";
 import { useState } from "react";
 import { useEffect } from "react";
->>>>>>> 0b7b06096f747e3d507b8dd40cb20fff9e4a77e7:frontend/src/Components/landingPage/Tab.jsx
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -103,14 +98,10 @@ export default function TabsSegmentedControls() {
             handleChange(event, newValue);
             event.preventDefault();
           }}
-<<<<<<< HEAD:frontend/src/Components/landingPage/Tabs.jsx
           aria-label="basic tabs example"
           className="tab"
-=======
-          aria-label="tabs"
           defaultValue={0}
           sx={{ bgcolor: "transparent" }}
->>>>>>> 0b7b06096f747e3d507b8dd40cb20fff9e4a77e7:frontend/src/Components/landingPage/Tab.jsx
         >
           <TabList
             disableUnderline

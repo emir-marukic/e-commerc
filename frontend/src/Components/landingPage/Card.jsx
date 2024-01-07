@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function MediaCard({ name, img, price }) {
   return (
@@ -34,7 +35,9 @@ export default function MediaCard({ name, img, price }) {
         </CardContent>
         <CardActions>
           <Button variant="contained" size="medium">
-            Shop now
+            <Link to="/shop" className="link">
+              Shop now
+            </Link>
           </Button>
         </CardActions>
       </Card>

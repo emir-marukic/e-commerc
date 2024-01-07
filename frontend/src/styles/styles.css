@@ -56,3 +56,7 @@ body {
 .MuiTabs-indicator {
   display: none;
 }
+
+a.link {
+  text-decoration: none;
+}
