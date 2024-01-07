@@ -10,13 +10,20 @@ import { Link } from "react-router-dom";
 export default function MediaCard({ name, img, price }) {
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card>
+      <Card
+        sx={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
         <CardMedia
           sx={{
-            height: 240,
+            height: "fit-content",
             width: "100%",
             padding: "20px",
-            objectFit: "inherit",
+            objectFit: "cover",
           }}
           component="img"
           image={img}
