@@ -7,7 +7,11 @@ import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export default function MediaCard({ name, img, price }) {
+export default function MediaCard({ name, img, price, type, id }) {
+  // const handleButtonClick = () => {
+  //   window.location.href = `/shop/${type}/${id}`;
+  // };
+
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
       <Card
@@ -42,7 +46,7 @@ export default function MediaCard({ name, img, price }) {
         </CardContent>
         <CardActions>
           <Button variant="contained" size="medium">
-            <Link to="/shop" className="link">
+            <Link to={`/shop/${type}/${id}`} className="link">
               Shop now
             </Link>
           </Button>

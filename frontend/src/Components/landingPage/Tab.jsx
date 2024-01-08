@@ -135,6 +135,8 @@ export default function TabsSegmentedControls() {
                   name={item.attributes.model}
                   img={item.attributes.img}
                   price={"$" + item.attributes.price}
+                  type="samsungs"
+                  id={item.id}
                 />
               ))}
           </Grid>
@@ -151,6 +153,8 @@ export default function TabsSegmentedControls() {
                   name={item.attributes.model}
                   img={item.attributes.img}
                   price={"$" + item.attributes.price}
+                  type="phones"
+                  id={item.id}
                 />
               ))}
           </Grid>
@@ -167,6 +171,8 @@ export default function TabsSegmentedControls() {
                   name={item.attributes.model}
                   img={item.attributes.img}
                   price={"$" + item.attributes.price}
+                  type="samsung-smart-watches"
+                  id={item.id}
                 />
               ))}
           </Grid>
@@ -183,6 +189,8 @@ export default function TabsSegmentedControls() {
                   name={item.attributes.model}
                   img={item.attributes.img}
                   price={"$" + item.attributes.price}
+                  type="iphone-watches"
+                  id={item.id}
                 />
               ))}
           </Grid>
