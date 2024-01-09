@@ -11,6 +11,7 @@ import { devicesApi } from "../../api/App";
 import "../../styles/styles.css";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useRef } from "react";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -75,6 +76,8 @@ export default function TabsSegmentedControls() {
     fetchData(getTabDataName(value));
   }, [value]);
 
+  const tabContainerRef = useRef(null);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -90,7 +93,11 @@ export default function TabsSegmentedControls() {
   };
 
   return (
-    <Box sx={{ width: "100%", textAlign: "center" }}>
+    <Box
+      sx={{ width: "100%", textAlign: "center" }}
+      id="tabContainer"
+      ref={tabContainerRef}
+    >
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Tabs
           value={value}

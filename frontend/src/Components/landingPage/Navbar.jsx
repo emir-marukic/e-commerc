@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "../../styles/styles.css";
+import { useScrollContext } from "../Util/ScrollContext";
 
 function Navbar() {
+  const handleShopLinkClick = useScrollContext();
+
   return (
     <div className="backgroundContainer">
       <div className="navbar">
@@ -17,7 +20,9 @@ function Navbar() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/shop">Shop</Link>
+              <a className="link" onClick={handleShopLinkClick}>
+                Shop
+              </a>
             </li>
           </ul>
         </div>
