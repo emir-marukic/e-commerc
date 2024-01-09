@@ -21,8 +21,9 @@ body {
 .navbar {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: start;
   padding-top: 30px;
+  /* background-color: gray; */
 }
 
 .navLinks ul {
@@ -59,5 +60,4 @@ body {
 
 a.link {
   text-decoration: none;
-  cursor: pointer;
 }

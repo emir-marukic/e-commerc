@@ -20,6 +20,9 @@
     },
     "img": {
       "type": "string"
+    },
+    "detail": {
+      "type": "text"
     }
   }
 }

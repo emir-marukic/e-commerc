@@ -20,7 +20,7 @@ function Navbar() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <a className="link" onClick={handleShopLinkClick}>
+              <a href="#" onClick={handleShopLinkClick}>
                 Shop
               </a>
             </li>

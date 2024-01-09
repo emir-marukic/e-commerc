@@ -10,9 +10,6 @@ const ShopPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log("Type :", type);
-      console.log("Product :", productId);
-
       try {
         const response = await devicesApi.get(`api/${type}/${productId}`);
         setProduct(response.data.data.attributes);
@@ -21,6 +18,7 @@ const ShopPage = () => {
       }
     };
     fetchData();
+    console.log(product);
   }, [type, productId]);
 
   useEffect(() => {
@@ -51,12 +49,7 @@ const ShopPage = () => {
               </Stack>
 
               <Typography variant="body1" paragraph>
-                Fam locavore kickstarter distillery. Mixtape chillwave tumeric
-                sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo
-                juiceramps cornhole raw denim forage brooklyn. Everyday carry +1
-                seitan poutine tumeric. Gastropub blue bottle austin listicle
-                pour-over, neutra jean shorts keytar banjo tattooed umami
-                cardigan.
+                {product && product.detail}
               </Typography>
               <Grid className={styles.button}>
                 {product && (

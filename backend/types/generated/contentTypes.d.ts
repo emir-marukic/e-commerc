@@ -774,6 +774,7 @@ export interface ApiIphoneWatchIphoneWatch extends Schema.CollectionType {
     singularName: 'iphone-watch';
     pluralName: 'iphone-watches';
     displayName: 'iphone watch';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -782,6 +783,7 @@ export interface ApiIphoneWatchIphoneWatch extends Schema.CollectionType {
     model: Attribute.String;
     price: Attribute.Integer;
     img: Attribute.String;
+    detail: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -815,6 +817,7 @@ export interface ApiPhonePhone extends Schema.CollectionType {
     model: Attribute.String;
     price: Attribute.Integer;
     img: Attribute.String;
+    detail: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -848,6 +851,7 @@ export interface ApiSamsungSamsung extends Schema.CollectionType {
     model: Attribute.String;
     price: Attribute.Integer;
     img: Attribute.String;
+    detail: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -882,6 +886,7 @@ export interface ApiSamsungSmartWatchSamsungSmartWatch
     model: Attribute.String;
     price: Attribute.Integer;
     img: Attribute.String;
+    detail: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

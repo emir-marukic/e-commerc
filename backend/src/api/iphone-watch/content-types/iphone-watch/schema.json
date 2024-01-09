@@ -4,7 +4,8 @@
   "info": {
     "singularName": "iphone-watch",
     "pluralName": "iphone-watches",
-    "displayName": "iphone watch"
+    "displayName": "iphone watch",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,9 @@
     },
     "img": {
       "type": "string"
+    },
+    "detail": {
+      "type": "text"
     }
   }
 }
