@@ -30,7 +30,6 @@ function LandingPage() {
             "https://images.pexels.com/photos/5081914/pexels-photo-5081914.jpeg?auto=compress&cs=tinysrgb&w=600"
           }
         />
-
         <Footer />
       </div>
     </ScrollProvider>
