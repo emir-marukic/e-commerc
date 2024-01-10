@@ -8,10 +8,6 @@ import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export default function MediaCard({ name, img, price, type, id }) {
-  // const handleButtonClick = () => {
-  //   window.location.href = `/shop/${type}/${id}`;
-  // };
-
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
       <Card
@@ -36,8 +32,18 @@ export default function MediaCard({ name, img, price, type, id }) {
           style={{}}
         />
 
-        <CardContent style={{ height: "150px", color: "black" }}>
-          <Typography variant="h5" component="div" style={{ color: "black" }}>
+        <CardContent
+          style={{
+            height: "fit-content",
+            color: "black",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "start",
+            gap: "40px",
+            marginTop: "20px",
+          }}
+        >
+          <Typography variant="h6" component="div" style={{ color: "black" }}>
             {name}
           </Typography>
           <Typography variant="body2" color="text.primary" fontSize={25}>

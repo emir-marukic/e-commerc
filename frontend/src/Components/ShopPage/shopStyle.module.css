@@ -2,9 +2,10 @@
   display: flex;
   justify-content: center;
   width: 70%;
-  height: 600px;
+
   margin: auto;
   margin-top: 60px;
+  align-items: center;
 }
 
 .button {

@@ -6,12 +6,12 @@ import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Container, CssBaseline, Grid } from "@mui/material";
-import MediaCard from "./Card";
 import { devicesApi } from "../../api/App";
 import "../../styles/styles.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
+import MediaCard from "./Card";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -72,8 +72,10 @@ export default function TabsSegmentedControls() {
         console.error("Error fetching data: ", error);
       }
     };
-
     fetchData(getTabDataName(value));
+
+    const currentTabData = getTabDataName(value);
+    fetchData(currentTabData);
   }, [value]);
 
   const tabContainerRef = useRef(null);
@@ -130,7 +132,6 @@ export default function TabsSegmentedControls() {
           </TabList>
         </Tabs>
       </Box>
-
       <CustomTabPanel value={value} index={0}>
         <CssBaseline />
         <Container maxWidth="xl">

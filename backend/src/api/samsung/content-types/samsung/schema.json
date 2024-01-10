@@ -23,6 +23,9 @@
     },
     "detail": {
       "type": "text"
+    },
+    "performance": {
+      "type": "text"
     }
   }
 }

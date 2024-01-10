@@ -38,19 +38,30 @@ const ShopPage = () => {
           </Grid>
 
           <Grid item xs={12} sm={6}>
-            <Stack spacing={8}>
-              <Stack spacing={2}>
+            <Stack spacing={4}>
+              <Grid>
                 <Typography variant="h6" fontSize="18px">
                   BRAND NAME
                 </Typography>
                 {product && (
                   <Typography variant="h4">{product.model}</Typography>
                 )}
+              </Grid>
+
+              <Stack spacing={2}>
+                <Typography variant="h5">Design</Typography>
+                <Typography variant="body1" paragraph>
+                  {product && product.detail}
+                </Typography>
               </Stack>
 
-              <Typography variant="body1" paragraph>
-                {product && product.detail}
-              </Typography>
+              <Stack spacing={2}>
+                <Typography variant="h5">Performance</Typography>
+                <Typography variant="body1" paragraph>
+                  {product && product.performance}
+                </Typography>
+              </Stack>
+
               <Grid className={styles.button}>
                 {product && (
                   <Typography variant="h5" fontWeight="bold">
