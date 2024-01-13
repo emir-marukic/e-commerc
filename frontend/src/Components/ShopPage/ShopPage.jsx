@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { devicesApi } from "../../api/App";
 import { Button, Container, Grid, Stack, Typography } from "@mui/material";
-import styles from "./shopStyle.module.css";
+import styles from "../../styles/shopStyle.module.css";
 
 const ShopPage = () => {
   const { type, productId } = useParams();
@@ -27,7 +27,13 @@ const ShopPage = () => {
 
   return (
     <div className={styles.container}>
-      <Container maxWidth="xl" sx={{ marginTop: "50px" }}>
+      <Container
+        maxWidth="xl"
+        sx={{
+          background: "#7a7d7d",
+          borderRadius: "20px",
+        }}
+      >
         <Grid container spacing={8} className={styles.container}>
           <Grid item xs={12} sm={6} className={styles.imgPosition}>
             {product ? (
@@ -37,9 +43,9 @@ const ShopPage = () => {
             )}
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} lg={5}>
             <Stack spacing={4}>
-              <Grid>
+              <Grid pt={10}>
                 <Typography variant="h6" fontSize="18px">
                   BRAND NAME
                 </Typography>
@@ -62,7 +68,7 @@ const ShopPage = () => {
                 </Typography>
               </Stack>
 
-              <Grid className={styles.button}>
+              <Grid className={styles.button} pb={10}>
                 {product && (
                   <Typography variant="h5" fontWeight="bold">
                     {"$" + product.price}

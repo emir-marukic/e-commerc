@@ -2,9 +2,9 @@ import Navbar from "./Navbar";
 import Content from "./Content";
 import Footer from "./Footer";
 import { ScrollProvider } from "../Util/ScrollContext";
-import FilterSearch from "../Util/FilterSearch";
+// import FilterSearch from "../Util/FilterSearch";
 import TabsSegmentedControls from "./Tab";
-import FreeSolo from "../Util/FilterSearch";
+// import FreeSolo from "../Util/FilterSearch";
 
 function LandingPage() {
   return (

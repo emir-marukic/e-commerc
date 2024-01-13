@@ -1,17 +1,30 @@
-import * as React from "react";
-import TextField from "@mui/material/TextField";
-import Stack from "@mui/material/Stack";
+import React, { useState } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
 
 export default function FilterSearch({ device }) {
+  const [searchValue, setSearchValue] = useState("");
+
+  const formattedOptions = device.map((option) => ({
+    label: option.model,
+    value: option, // You can include the entire option object if needed
+  }));
+
+  const filteredDevices = formattedOptions.filter(
+    (option) =>
+      option.label &&
+      option.label.toLowerCase().includes(searchValue?.toLowerCase())
+  );
+
   return (
-    <Stack spacing={2} sx={{ width: 300, background: "white" }}>
-      <Autocomplete
-        id="free-solo-demo"
-        freeSolo
-        options={device.map((option) => option.model)}
-        renderInput={(params) => <TextField {...params} label="freeSolo" />}
-      />
-    </Stack>
+    <Autocomplete
+      id="free-solo-demo"
+      freeSolo
+      options={filteredDevices}
+      getOptionLabel={(option) => option.label}
+      value={searchValue}
+      onChange={(event, newValue) => setSearchValue(newValue)}
+      renderInput={(params) => <TextField {...params} label="Search" />}
+    />
   );
 }
