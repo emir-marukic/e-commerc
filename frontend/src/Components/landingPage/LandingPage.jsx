@@ -4,9 +4,13 @@ import Footer from "./Footer";
 import { ScrollProvider } from "../Util/ScrollContext";
 // import FilterSearch from "../Util/FilterSearch";
 import TabsSegmentedControls from "./Tab";
+import { useEffect } from "react";
 // import FreeSolo from "../Util/FilterSearch";
 
 function LandingPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <ScrollProvider>
       <div>

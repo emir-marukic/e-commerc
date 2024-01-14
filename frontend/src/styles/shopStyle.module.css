@@ -26,3 +26,8 @@ img.img {
   display: flex;
   justify-content: center;
 }
+
+.reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
