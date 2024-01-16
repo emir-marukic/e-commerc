@@ -5,12 +5,11 @@ import { ScrollProvider } from "../Util/ScrollContext";
 // import FilterSearch from "../Util/FilterSearch";
 import TabsSegmentedControls from "./Tab";
 import { useEffect } from "react";
+import { scrollUp } from "../Util/ScrollUp";
 // import FreeSolo from "../Util/FilterSearch";
 
 function LandingPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  scrollUp();
   return (
     <ScrollProvider>
       <div>

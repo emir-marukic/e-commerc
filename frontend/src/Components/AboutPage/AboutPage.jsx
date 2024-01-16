@@ -6,9 +6,14 @@ import AttachEmailOutlinedIcon from "@mui/icons-material/AttachEmailOutlined";
 import JoinUs from "./JoinUs";
 import AboutFooter from "./AboutFooter";
 import { AboutIcons } from "./AboutIcons";
-// import styles from "../../styles/shopStyles.module.css";
+import { scrollUp } from "../Util/ScrollUp";
+import { useScrollContext } from "../Util/ScrollContext";
 
 function AboutPage() {
+  const handleShopLinkClick = useScrollContext();
+
+  scrollUp();
+
   return (
     <div>
       <div className="container">
@@ -25,10 +30,9 @@ function AboutPage() {
                 <Link to="/about">About</Link>
               </li>
               <li>
-                {/* <a href="#" onClick={handleShopLinkClick}>
+                <Link to={"/"} onClick={handleShopLinkClick}>
                   Shop
-                </a> */}
-                <a href="#">Shop</a>
+                </Link>
               </li>
             </ul>
           </div>
