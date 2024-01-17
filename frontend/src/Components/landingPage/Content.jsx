@@ -6,7 +6,13 @@ function Content(props) {
   const direction = props.classN === "reverse" ? "row-reverse" : "row";
   return (
     <Container maxWidth="lg">
-      <Typography textAlign="center" variant="h2" fontSize={40} mt={20}>
+      <Typography
+        textAlign="center"
+        variant="h2"
+        fontSize={40}
+        mt={20}
+        height="60px"
+      >
         {props.header}
       </Typography>
       <Grid

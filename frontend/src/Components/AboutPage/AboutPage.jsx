@@ -12,6 +12,8 @@ import { useScrollContext } from "../Util/ScrollContext";
 function AboutPage() {
   const handleShopLinkClick = useScrollContext();
 
+  console.log("AboutPage handleShopLinkClick", handleShopLinkClick);
+
   scrollUp();
 
   return (
@@ -30,7 +32,11 @@ function AboutPage() {
                 <Link to="/about">About</Link>
               </li>
               <li>
-                <Link to={"/"} onClick={handleShopLinkClick}>
+                <Link
+                  to={"/"}
+                  onClick={(e) => handleShopLinkClick(e.target)}
+                  data-scroll-to="tabContainer"
+                >
                   Shop
                 </Link>
               </li>

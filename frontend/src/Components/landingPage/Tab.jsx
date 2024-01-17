@@ -108,6 +108,7 @@ export default function TabsSegmentedControls() {
         }}
         id="tabContainer"
         ref={tabContainerRef}
+        data-scroll-to="tabContainer"
       >
         <Box sx={{ display: "flex", justifyContent: "center", paddingTop: 10 }}>
           <Tabs
