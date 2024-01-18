@@ -50,7 +50,9 @@ const ShopPage = () => {
                   BRAND NAME
                 </Typography>
                 {product && (
-                  <Typography variant="h4">{product.model}</Typography>
+                  <Typography variant="h4" height={120}>
+                    {product.model}
+                  </Typography>
                 )}
               </Grid>
 

@@ -7,7 +7,11 @@ const JoinUs = () => {
       <Grid container alignItems="center" sx={{ height: "100%" }}>
         <Grid item lg={6}>
           <Stack spacing={10} ml={15}>
-            <Typography sx={{ color: "green" }} variant="h1" fontSize={50}>
+            <Typography
+              sx={{ color: "green", height: "70px" }}
+              variant="h1"
+              fontSize={50}
+            >
               Join us on our journey
             </Typography>
             <Grid container alignItems="center" gap={15}>

@@ -16,7 +16,9 @@ const AboutFooter = () => {
         <Grid container alignItems="center">
           <Grid mt={20} width={"60%"} xl={6}>
             <Stack spacing={5}>
-              <Typography variant="h3">Meet the Team</Typography>
+              <Typography variant="h3" height={70}>
+                Meet the Team
+              </Typography>
               <Typography variant="h6">
                 Get to know the talented individuals who make SyncSphere a hub
                 of creativity and innovation.
