@@ -8,11 +8,10 @@ import AboutFooter from "./AboutFooter";
 import { AboutIcons } from "./AboutIcons";
 import { scrollUp } from "../Util/ScrollUp";
 import { useScrollContext } from "../Util/ScrollContext";
+import logo from "../../assets/logo.png";
 
 function AboutPage() {
   const handleShopLinkClick = useScrollContext();
-
-  console.log("AboutPage handleShopLinkClick", handleShopLinkClick);
 
   scrollUp();
 
@@ -21,7 +20,7 @@ function AboutPage() {
       <div className="container">
         <div className="navbar">
           <div className="logo">
-            <b>SyncSphere</b>
+            <img src={logo} alt="" />
           </div>
           <div className="navLinks">
             <ul>

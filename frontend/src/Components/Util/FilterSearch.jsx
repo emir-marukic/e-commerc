@@ -7,7 +7,7 @@ export default function FilterSearch({ device }) {
 
   const formattedOptions = device.map((option) => ({
     label: option.model,
-    value: option, // You can include the entire option object if needed
+    value: option,
   }));
 
   const filteredDevices = formattedOptions.filter(

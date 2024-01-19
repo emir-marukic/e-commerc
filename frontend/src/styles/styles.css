@@ -36,8 +36,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #222725;
-  opacity: 0.9;
+  background-color: rgba(34, 39, 37, 0.9);
   height: 80px;
 }
 
@@ -76,14 +75,14 @@ body {
 }
 
 .navText p {
-  background-color: rgba(154, 209, 212, 0.2);
+  background-color: rgba(154, 209, 212, 0.7);
   color: black;
   width: 35%;
 }
 
 .navText p:nth-of-type(2) {
   background-color: #9ad1d4;
-  background-color: rgba(154, 209, 212, 0.2);
+  background-color: rgba(154, 209, 212, 0.7);
   width: 25%;
 }
 .MuiTabs-indicator {
