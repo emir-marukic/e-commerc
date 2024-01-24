@@ -2,9 +2,8 @@
   display: flex;
   justify-content: center;
   width: 70%;
-
   margin: auto;
-  margin-top: 60px;
+  margin-top: 10px;
   align-items: center;
 }
 
@@ -25,4 +24,13 @@ img.img {
 .imgPosition {
   display: flex;
   justify-content: center;
+}
+
+.reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.shopTextColor {
+  color: #000000;
 }

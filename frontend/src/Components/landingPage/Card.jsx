@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 export default function MediaCard({ name, img, price, type, id }) {
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3}>
+    <Grid item xs={12} sm={6} md={4} lg={3} sx={{ paddingBottom: "60px" }}>
       <Card
         sx={{
           height: "100%",

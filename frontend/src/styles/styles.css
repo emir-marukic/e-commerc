@@ -3,15 +3,29 @@
   box-sizing: border-box;
   overflow-x: hidden;
   color: white;
+  font-family: "Open Sans" !important;
 }
 
 body {
   margin: 0;
-  background-color: #636b74 !important;
+  background-color: #222725 !important;
 }
 
+.logo {
+  height: 80px;
+  width: 12%;
+  overflow: hidden;
+  background-color: #222725;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo img {
+  max-width: 100%;
+  height: 250%;
+}
 .backgroundContainer {
-  background-image: url(../assets/pexels-thiago-japyassu-1069798.jpg);
+  background-image: url(../assets/navbar.jpg);
   background-size: cover;
   background-position: center center;
   height: 100vh;
@@ -21,17 +35,17 @@ body {
 .navbar {
   display: flex;
   justify-content: space-around;
-  align-items: start;
-  padding-top: 30px;
-  /* background-color: gray; */
+  align-items: center;
+  background-color: rgba(34, 39, 37, 0.9);
+  height: 80px;
 }
 
 .navLinks ul {
   display: flex;
   width: 500px;
-
-  justify-content: space-around;
+  justify-content: space-between;
   list-style: none;
+  padding: 0px;
 }
 
 .navLinks a {
@@ -39,10 +53,15 @@ body {
   font-size: 20px;
 }
 
+.navLinks a:hover {
+  color: #b6ccfe;
+  transition: ease-in-out 0.3s;
+}
+
 .navIcons {
   display: flex;
   justify-content: space-between;
-  width: 100px;
+  width: 200px;
 }
 
 .navText {
@@ -51,9 +70,21 @@ body {
   font-size: 40px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 
+.navText p {
+  background-color: rgba(154, 209, 212, 0.7);
+  color: black;
+  width: 35%;
+}
+
+.navText p:nth-of-type(2) {
+  background-color: #9ad1d4;
+  background-color: rgba(154, 209, 212, 0.7);
+  width: 25%;
+}
 .MuiTabs-indicator {
   display: none;
 }

@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import "../../styles/styles.css";
 import { useScrollContext } from "../Util/ScrollContext";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
+import AttachEmailOutlinedIcon from "@mui/icons-material/AttachEmailOutlined";
+import logo from "../../assets/logo.png";
 
 function Navbar() {
   const handleShopLinkClick = useScrollContext();
@@ -9,7 +13,7 @@ function Navbar() {
     <div className="backgroundContainer">
       <div className="navbar">
         <div className="logo">
-          <b>SyncSphere</b>
+          <img src={logo} alt="#" />
         </div>
         <div className="navLinks">
           <ul>
@@ -27,9 +31,9 @@ function Navbar() {
           </ul>
         </div>
         <div className="navIcons">
-          <p>/</p>
-          <p>/</p>
-          <p>/</p>
+          <ShoppingCartOutlinedIcon />
+          <AttachEmailOutlinedIcon />
+          <PeopleAltOutlinedIcon />
         </div>
       </div>
       <div className="navText">

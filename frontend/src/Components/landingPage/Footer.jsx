@@ -1,103 +1,73 @@
 import * as React from "react";
-
+import PropTypes from "prop-types";
+import { applySolidInversion } from "@mui/joy/colorInversion";
 import Box from "@mui/joy/Box";
-import IconButton from "@mui/joy/IconButton";
-import Divider from "@mui/joy/Divider";
-import List from "@mui/joy/List";
-import ListSubheader from "@mui/joy/ListSubheader";
-import ListItem from "@mui/joy/ListItem";
-import ListItemButton from "@mui/joy/ListItemButton";
-import Sheet from "@mui/joy/Sheet";
-import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import Button from "@mui/joy/Button";
+import Typography from "@mui/joy/Typography";
+import { Link } from "react-router-dom";
 
-function Footer() {
-  const [color, setColor] = React.useState("neutral");
+function Stat({ description, value }) {
   return (
-    <Sheet
-      variant="solid"
-      color={color}
-      invertedColors
-      sx={{
-        ...(color !== "neutral" && {
-          bgcolor: `${color}.800`,
-        }),
-        flexGrow: 1,
-        p: 2,
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: 13,
-          pr: 12,
-          justifyContent: "center",
-        }}
-      >
-        <IconButton variant="plain">
-          <FacebookRoundedIcon />
-        </IconButton>
-        <IconButton variant="plain">
-          <GitHubIcon />
-        </IconButton>
-      </Box>
-      <Divider sx={{ my: 2 }} />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { md: "row" },
-          alignItems: {},
-          justifyContent: "center",
-          flexWrap: "wrap",
-        }}
-      >
-        <List
-          size="sm"
-          orientation="horizontal"
-          wrap
-          sx={{
-            flexGrow: 0,
-            "--ListItem-radius": "8px",
-            "--ListItem-gap": "0px",
-            gap: 0,
-          }}
-        >
-          <ListItem nested sx={{ width: { xs: "100%", md: 140 } }}>
-            <ListSubheader sx={{ fontWeight: "xl" }}>Sitemap</ListSubheader>
-            <List>
-              <ListItem>
-                <ListItemButton>Services</ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>Shop</ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>About</ListItemButton>
-              </ListItem>
-            </List>
-          </ListItem>
-          <ListItem nested sx={{ width: { xs: "100%", md: 180 } }}>
-            <ListSubheader sx={{ fontWeight: "xl" }}>Products</ListSubheader>
-            <List sx={{ "--ListItemDecorator-size": "32px" }}>
-              <ListItem>
-                <ListItemButton>Samsung</ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>iPhone</ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>Samsung Watch</ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>iPhone Watch</ListItemButton>
-              </ListItem>
-            </List>
-          </ListItem>
-        </List>
-      </Box>
-    </Sheet>
+    <Box sx={{ borderLeft: 3, borderColor: "divider", px: 2, py: 0.5 }}>
+      <Typography level="h3" component="div">
+        {value}
+      </Typography>
+      <Typography level="title-sm" textColor="text.secondary">
+        {description}
+      </Typography>
+    </Box>
   );
 }
 
-export default Footer;
+Stat.propTypes = {
+  description: PropTypes.node,
+  value: PropTypes.node,
+};
+
+export default function Footer() {
+  return (
+    <Box
+      sx={[
+        {
+          display: "grid",
+          gridTemplateColumns: { sm: "1fr 1fr" },
+          alignItems: "center",
+          rowGap: 2,
+          columnGap: 8,
+          p: 4,
+          borderRadius: "sm",
+          background: (theme) =>
+            `linear-gradient(45deg, ${theme.vars.palette.neutral[800]}, ${theme.vars.palette.neutral[600]})`,
+        },
+        applySolidInversion("neutral"),
+      ]}
+    >
+      <div>
+        <Typography sx={{ mb: 2 }}>
+          Stay updated with our latest offers and news. Subscribe to our
+          newsletter.
+        </Typography>
+        <Button variant="soft">
+          <Link to={"/about"} className="link">
+            Learn more
+          </Link>
+        </Button>
+      </div>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "repeat(auto-fill, minmax(min(100%, 180px), 1fr))",
+            sm: "1fr 1fr",
+          },
+          gap: 3,
+        }}
+      >
+        <Stat value="4M" description="Weekly downloads" />
+        <Stat value="87k" description="Stars on GitHub" />
+        <Stat value="2.7k" description="Open source contributors" />
+        <Stat value="18.4k" description="Followers on X" />
+      </Box>
+    </Box>
+  );
+}

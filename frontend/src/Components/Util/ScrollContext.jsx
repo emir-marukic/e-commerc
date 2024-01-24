@@ -7,13 +7,14 @@ export const useScrollContext = () => {
 };
 
 export const ScrollProvider = ({ children }) => {
-  const handleShopLinkClick = () => {
-    console.log("handle shop click");
-    const tabContainer = document.getElementById("tabContainer");
-    if (tabContainer) {
-      console.log("scrolling to the element");
-      tabContainer.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleShopLinkClick = (target) => {
+    setTimeout(() => {
+      const tabContainer = document.getElementById("tabContainer");
+      if (tabContainer) {
+        console.log("scrolling to the element");
+        tabContainer.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 0);
   };
 
   return (
